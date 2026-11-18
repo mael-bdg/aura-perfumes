@@ -23,3 +23,7 @@ mvn -pl app javafx:run
 ```
 
 The application initializes its SQLite data store as needed. Run `mvn clean test` to execute the test suite.
+
+## Source archive
+
+[Download the Maven project source ZIP](./aura-source.zip?raw=true). Extract the archive, then run the commands above from the folder containing `pom.xml`.
