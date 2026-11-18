@@ -419,3 +419,17 @@ The GitLab pipeline in `.gitlab-ci.yml` runs on pushes and merge requests. It co
 * **Maëlys** _a.k.a_ [@badger](https://github.com/mael-bdg) - U3 Scent Consultations, U4 Boutique Orders and JavaFX integration.
 
 ## Project Limitations
+
+- GUI products, stock changes, loyalty balances, cart contents and orders are held in memory for the current application session and reset when the application restarts.
+- Consultation reservations are persisted using SQLite.
+- SQLite uses `aura-perfumes.db` relative to the application's working directory. The documented Maven GUI launch runs from the app module, producing `app/aura-perfumes.db`. Local database files are ignored by Git.
+- The GUI U4 workflow retrieves orders from the shared session store. Historical orders in the standalone SQLite U4 store belong to the legacy console workflow.
+- Email notifications are simulated.
+- Demonstration products and customer data are used for testing.
+- Some non-blocking SLF4J and SQLite native-access warnings may appear at startup.
+
+## Project status
+
+![Done](https://img.shields.io/badge/Done-%E2%9C%94-7ed9c0?labelColor=40b897&style=for-the-badge)
+
+=> **Done ! ^^**
