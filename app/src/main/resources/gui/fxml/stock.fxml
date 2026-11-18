@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="gui.stock.StockFXController" fx:id="stockPage"
+            fitToWidth="true" styleClass="page-scroll" stylesheets="@../css/stock.css"
+            accessibleText="Stock Management dashboard">
+    <content>
+        <StackPane alignment="TOP_CENTER">
+            <VBox maxWidth="1280" minHeight="-Infinity" styleClass="stock-dashboard">
+                <VBox spacing="8">
+                    <Label text="Stock Management" styleClass="page-heading" wrapText="true" minHeight="-Infinity" />
+                    <Label text="Monitor and manage your boutique inventory." styleClass="page-subtitle"
+                           wrapText="true" minHeight="-Infinity" />
+                    <Label fx:id="inventoryStatus" text="Loading demonstration inventory..." styleClass="helper-text"
+                           wrapText="true" minHeight="-Infinity" />
+                </VBox>
+
+                <HBox spacing="16" fillHeight="true">
+                    <VBox minWidth="0" prefWidth="220" HBox.hgrow="ALWAYS" styleClass="dashboard-card">
+                        <Label text="Total Products" styleClass="card-heading, stock-summary-title"
+                               wrapText="true" />
+                        <Label fx:id="totalProductsValue" text="&#8212;" styleClass="card-value" />
+                        <Label fx:id="totalProductsHint" text="Not loaded" styleClass="helper-text" wrapText="true" />
+                    </VBox>
+                    <VBox minWidth="0" prefWidth="220" HBox.hgrow="ALWAYS" styleClass="dashboard-card">
+                        <Label text="Available Units" styleClass="card-heading, stock-summary-title"
+                               wrapText="true" />
+                        <Label fx:id="availableUnitsValue" text="&#8212;" styleClass="card-value" />
+                        <Label fx:id="availableUnitsHint" text="Not loaded" styleClass="helper-text" wrapText="true" />
+                    </VBox>
+                    <VBox minWidth="0" prefWidth="220" HBox.hgrow="ALWAYS" styleClass="dashboard-card">
+                        <Label text="Low Stock Products" styleClass="card-heading, stock-summary-title"
+                               wrapText="true" />
+                        <Label fx:id="lowStockProductsValue" text="&#8212;" styleClass="card-value" />
+                        <Label fx:id="lowStockHint" text="Not loaded" styleClass="helper-text" wrapText="true" />
+                    </VBox>
+                </HBox>
+
+                <VBox styleClass="section">
+                    <HBox alignment="CENTER_LEFT">
+                        <Label text="Inventory" styleClass="section-heading" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="refreshButton" text="Reload inventory" onAction="#refreshInventory" styleClass="button-secondary" />
+                    </HBox>
+                    <HBox spacing="16" alignment="BOTTOM_LEFT">
+                        <VBox minWidth="0" HBox.hgrow="ALWAYS" styleClass="stock-form-fields">
+                            <Label text="Product search" labelFor="${productSearch}" styleClass="field-label" />
+                            <TextField fx:id="productSearch" promptText="Search by product name" disable="true"
+                                       styleClass="form-field" accessibleHelp="Search the loaded inventory by product name." />
+                        </VBox>
+                        <VBox minWidth="160" prefWidth="220" maxWidth="220" styleClass="stock-form-fields">
+                            <Label text="Category" labelFor="${categoryFilter}" styleClass="field-label" />
+                            <ComboBox fx:id="categoryFilter" promptText="All categories" disable="true"
+                                      maxWidth="Infinity" styleClass="form-combo"
+                                      accessibleHelp="Filter the loaded inventory by category." />
+                        </VBox>
+                    </HBox>
+                    <Button fx:id="clearFiltersButton" text="Clear filters" onAction="#clearFilters" styleClass="button-secondary" />
+                    <TableView fx:id="inventoryTable" minHeight="272" prefHeight="272" maxHeight="272"
+                               styleClass="data-table, stock-inventory-table" accessibleText="Product inventory">
+                        <columns>
+                            <TableColumn fx:id="productColumn" text="Product" minWidth="140" prefWidth="220" />
+                            <TableColumn fx:id="categoryColumn" text="Category" minWidth="100" prefWidth="140" />
+                            <TableColumn fx:id="quantityColumn" text="Available Quantity" minWidth="156" prefWidth="164" />
+                            <TableColumn fx:id="statusColumn" text="Stock Status" minWidth="110" prefWidth="120" />
+                            <TableColumn fx:id="actionsColumn" text="Actions" minWidth="88" prefWidth="88" sortable="false" />
+                        </columns>
+                        <placeholder>
+                            <VBox alignment="CENTER" maxWidth="440" styleClass="empty-state">
+                                <Label fx:id="emptyTitle" text="Inventory not loaded" styleClass="empty-state-title"
+                                       wrapText="true" minHeight="-Infinity" />
+                                <Label fx:id="emptyDescription" text="Products and stock quantities will appear here when inventory is available."
+                                       styleClass="helper-text, stock-empty-copy" maxWidth="340"
+                                       wrapText="true" minHeight="-Infinity" />
+                            </VBox>
+                        </placeholder>
+                    </TableView>
+                </VBox>
+
+                <VBox styleClass="dashboard-card">
+                    <Label text="Adjust stock" styleClass="section-heading" />
+                    <Label text="Select a product and an operation to prepare an adjustment."
+                           styleClass="helper-text" wrapText="true" minHeight="-Infinity" />
+                    <VBox styleClass="stock-form-fields">
+                        <Label text="Selected product" labelFor="${selectedProduct}" styleClass="field-label" />
+                        <TextField fx:id="selectedProduct" promptText="Select a product from the inventory table"
+                                   editable="false" styleClass="form-field" />
+                    </VBox>
+                    <HBox spacing="16" alignment="BOTTOM_LEFT">
+                        <VBox minWidth="0" HBox.hgrow="ALWAYS" styleClass="stock-form-fields">
+                            <Label text="Adjustment operation" labelFor="${adjustmentOperation}" styleClass="field-label" />
+                            <ComboBox fx:id="adjustmentOperation" promptText="Choose an operation" disable="true"
+                                      maxWidth="Infinity" styleClass="form-combo" />
+                        </VBox>
+                        <VBox minWidth="140" prefWidth="160" maxWidth="160" styleClass="stock-form-fields">
+                            <Label text="Quantity" labelFor="${adjustmentQuantity}" styleClass="field-label" />
+                            <Spinner fx:id="adjustmentQuantity" disable="true" maxWidth="Infinity" styleClass="form-spinner" />
+                        </VBox>
+                    </HBox>
+                    <Label fx:id="quantityError" text="Enter a whole quantity greater than zero."
+                           styleClass="validation-message" visible="false" managed="false" wrapText="true" />
+                    <HBox alignment="CENTER_RIGHT">
+                        <Button fx:id="submitAdjustment" text="Apply adjustment" onAction="#submitAdjustment" disable="true" styleClass="button-primary">
+                            <tooltip><Tooltip text="Apply the selected stock adjustment." /></tooltip>
+                        </Button>
+                    </HBox>
+                </VBox>
+                <Label fx:id="feedback" visible="false" managed="false" wrapText="true"
+                       minHeight="-Infinity" maxWidth="Infinity" />
+            </VBox>
+        </StackPane>
+    </content>
+</ScrollPane>

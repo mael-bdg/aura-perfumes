@@ -1,0 +1,14 @@
+/* Order-page composition layered over the shared design system. */
+.orders-fields { -fx-spacing: 8; }
+.orders-cart-table .table-row-cell { -fx-cell-size: 72; }
+.orders-row-action {
+    -fx-min-height: 36;
+    -fx-padding: 8 9;
+    -fx-font-size: 12px;
+}
+.orders-progress { -fx-progress-color: -aura-gold; }
+.orders-total {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 25px;
+}
+.orders-quote-grid { -fx-hgap: 24; -fx-vgap: 12; }

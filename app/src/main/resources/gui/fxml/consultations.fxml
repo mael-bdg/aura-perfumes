@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<ScrollPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="gui.consultations.ConsultationFXController"
+            fitToWidth="true"
+            hbarPolicy="NEVER"
+            styleClass="page-scroll">
+    <content>
+        <VBox spacing="24" styleClass="page">
+            <Label text="PERSONALIZED FRAGRANCE EXPERIENCE" styleClass="eyebrow" />
+            <Label text="Scent Consultations" styleClass="page-heading" />
+            <Label text="Discover an available appointment and reserve your personalized fragrance consultation." styleClass="page-subtitle" wrapText="true" />
+            <Separator styleClass="section-separator" />
+            <VBox spacing="16" styleClass="dashboard-card">
+                <Label text="01  CHOOSE YOUR APPOINTMENT" styleClass="section-heading" />
+                <HBox spacing="16" alignment="BOTTOM_LEFT">
+                    <VBox spacing="8" HBox.hgrow="ALWAYS">
+                        <Label text="Consultation date" styleClass="field-label" />
+                        <DatePicker fx:id="consultationDate" maxWidth="Infinity" />
+                    </VBox>
+                    <VBox spacing="8" HBox.hgrow="ALWAYS">
+                        <Label text="Preferred associate" styleClass="field-label" />
+                        <ComboBox fx:id="associateChoice" maxWidth="Infinity" styleClass="form-combo" promptText="Choose an associate" />
+                    </VBox>
+                    <Button fx:id="searchButton" text="Find appointments" onAction="#searchAvailability" styleClass="button-secondary" />
+                </HBox>
+                <CheckBox fx:id="anyAssociate" text="Any available associate" />
+                <Label text="Available appointments (30 minutes)" styleClass="field-label" />
+                <ListView fx:id="availableSlots" prefHeight="180" minHeight="140" />
+            </VBox>
+            <VBox spacing="16" styleClass="dashboard-card">
+                <Label text="02  YOUR DETAILS" styleClass="section-heading" />
+                <HBox spacing="16">
+                    <VBox spacing="8" HBox.hgrow="ALWAYS">
+                        <Label text="Full name" styleClass="field-label" />
+                        <TextField fx:id="customerName" promptText="Your name" styleClass="form-field" />
+                    </VBox>
+                    <VBox spacing="8" HBox.hgrow="ALWAYS">
+                        <Label text="Email address" styleClass="field-label" />
+                        <TextField fx:id="customerEmail" promptText="name@example.com" styleClass="form-field" />
+                    </VBox>
+                </HBox>
+                <Label text="Fragrance preferences (optional)" styleClass="field-label" />
+                <TextArea fx:id="fragrancePreferences" promptText="Tell us about the scents you enjoy" prefRowCount="3" wrapText="true" styleClass="form-field" />
+                <Button fx:id="bookButton" text="Confirm Booking" onAction="#confirmBooking" styleClass="button-primary" />
+                <Label fx:id="statusLabel" text="Select a date to view available appointments." wrapText="true" />
+            </VBox>
+            <VBox fx:id="confirmationPanel" spacing="8" styleClass="dashboard-card">
+                <Label text="BOOKING CONFIRMATION" styleClass="section-heading" />
+                <Label fx:id="confirmationDetails" wrapText="true" />
+            </VBox>
+        </VBox>
+    </content>
+</ScrollPane>

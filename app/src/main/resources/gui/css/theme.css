@@ -1,0 +1,86 @@
+/* Native JavaFX looked-up colors shared by the scene graph.
+ * Load theme.css, components.css, then the current page stylesheet.
+ * Spacing follows an 8px rhythm: 8, 16, 24, 32, 40, 48.
+ */
+.root {
+    -aura-ivory: #F8F5F0;
+    -aura-champagne: #E8DCC8;
+    -aura-taupe: #A38F7A;
+    -aura-espresso: #342B26;
+    -aura-gold: #B69A68;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 14px;
+    -fx-base: -aura-ivory;
+    -fx-background: -aura-ivory;
+    -fx-control-inner-background: -aura-ivory;
+    -fx-accent: -aura-espresso;
+    -fx-focus-color: -aura-espresso;
+    -fx-faint-focus-color: transparent;
+    -fx-selection-bar: -aura-champagne;
+    -fx-selection-bar-non-focused: -aura-champagne;
+    -fx-background-color: -aura-ivory;
+}
+
+.app-background { -fx-background-color: -aura-ivory; }
+.surface-background { -fx-background-color: -aura-champagne; }
+.page { -fx-padding: 40; }
+.section { -fx-spacing: 16; }
+.label, .text-label { -fx-text-fill: -aura-espresso; }
+.display-heading, .page-heading, .section-heading {
+    -fx-font-family: "Georgia";
+    -fx-font-weight: normal;
+    -fx-text-fill: -aura-espresso;
+}
+.display-heading {
+    -fx-font-size: 58px;
+    -fx-line-spacing: 6px;
+}
+.page-heading {
+    -fx-font-size: 36px;
+    -fx-line-spacing: 4px;
+}
+.section-heading { -fx-font-size: 23px; }
+.page-subtitle {
+    -fx-font-size: 16px;
+    -fx-line-spacing: 7px;
+}
+.field-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+.helper-text, .eyebrow {
+    -fx-font-size: 12px;
+    -fx-text-fill: -aura-espresso;
+}
+.brand {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 23px;
+}
+.separator .line, .section-separator .line {
+    -fx-border-color: -aura-champagne;
+    -fx-border-width: 1 0 0 0;
+    -fx-background-color: transparent;
+}
+.gold-rule { -fx-background-color: -aura-gold; }
+.separator:vertical .line, .section-separator:vertical .line {
+    -fx-border-width: 0 0 0 1;
+}
+
+/* ScrollPane sizing belongs to FXML. Its viewport shares the page surface. */
+.page-scroll, .page-scroll > .viewport { -fx-background-color: -aura-ivory; }
+.page-scroll {
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+}
+.page-scroll:focused {
+    -fx-border-color: -aura-espresso;
+    -fx-border-width: 1;
+}
+.scroll-bar, .scroll-bar .track { -fx-background-color: -aura-ivory; }
+.scroll-bar .thumb {
+    -fx-background-color: -aura-taupe;
+    -fx-background-radius: 8;
+}
+.scroll-bar .thumb:hover, .scroll-bar .thumb:pressed { -fx-background-color: -aura-espresso; }
+.scroll-bar .increment-button, .scroll-bar .decrement-button { -fx-background-color: -aura-ivory; }
+.scroll-bar .increment-arrow, .scroll-bar .decrement-arrow { -fx-background-color: -aura-espresso; }

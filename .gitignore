@@ -1,0 +1,28 @@
+
+# Maven build files
+target/
+**/target/
+
+# Java
+*.class
+*.log
+
+# Local SQLite runtime state (kept on disk, never committed)
+aura-perfumes.db
+aura-perfumes.db-journal
+aura-perfumes.db-wal
+aura-perfumes.db-shm
+
+# VS Code
+.vscode/
+.settings/
+.project
+.classpath
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Operating system
+.DS_Store
+Thumbs.db

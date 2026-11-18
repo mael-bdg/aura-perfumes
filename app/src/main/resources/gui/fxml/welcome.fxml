@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
+            styleClass="app-background">
+    <top>
+        <HBox alignment="CENTER_LEFT" styleClass="welcome-masthead">
+            <Rectangle width="10" height="10" rotate="45" styleClass="brand-mark" mouseTransparent="true" />
+            <Label text="AURA PERFUMES" styleClass="brand" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label text="THE ART OF SCENT" styleClass="eyebrow" />
+        </HBox>
+    </top>
+    <center>
+        <!-- Scrolling preserves content at large text sizes and smaller desktop sizes. -->
+        <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="page-scroll"
+                    accessibleText="Aura Perfumes welcome page">
+            <content>
+                <StackPane>
+                    <HBox alignment="CENTER" maxWidth="1280" minHeight="-Infinity" styleClass="welcome-content">
+                        <VBox alignment="CENTER_LEFT" minWidth="320" prefWidth="470" maxWidth="640"
+                              styleClass="welcome-copy" HBox.hgrow="ALWAYS">
+                            <Label text="An aura,&#10;uniquely yours." wrapText="true" minHeight="-Infinity"
+                                   maxWidth="Infinity" styleClass="display-heading" />
+                            <Label text="A collection of fine fragrances,&#10;for the moments that make you."
+                                   wrapText="true" minHeight="-Infinity" maxWidth="Infinity" styleClass="page-subtitle" />
+                            <HBox styleClass="welcome-ornament" mouseTransparent="true">
+                                <Region minWidth="64" prefWidth="64" maxWidth="64" minHeight="2" maxHeight="2"
+                                        styleClass="gold-rule" />
+                            </HBox>
+                        </VBox>
+                        <StackPane minWidth="280" prefWidth="344" maxWidth="400" minHeight="376"
+                                   prefHeight="440" maxHeight="480" styleClass="fragrance-art"
+                                   mouseTransparent="true">
+                            <Circle radius="124" styleClass="fragrance-halo" />
+                            <VBox alignment="CENTER" spacing="0">
+                                <Rectangle width="64" height="40" arcWidth="4" arcHeight="4" styleClass="bottle-cap" />
+                                <Rectangle width="36" height="14" styleClass="bottle-neck" />
+                                <StackPane>
+                                    <Rectangle width="160" height="202" arcWidth="12" arcHeight="12" styleClass="bottle" />
+                                    <VBox alignment="CENTER" maxWidth="134" maxHeight="126" styleClass="bottle-label">
+                                        <Label text="AURA" styleClass="bottle-brand" />
+                                        <Label text="EAU DE PARFUM" styleClass="bottle-caption" />
+                                    </VBox>
+                                </StackPane>
+                            </VBox>
+                        </StackPane>
+                    </HBox>
+                </StackPane>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>

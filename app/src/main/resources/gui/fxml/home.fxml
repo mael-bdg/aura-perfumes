@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
+            stylesheets="@../css/home.css" styleClass="home-page">
+    <top>
+        <VBox spacing="20">
+            <HBox alignment="CENTER_LEFT" spacing="16">
+                <Label text="AURA PERFUMES" styleClass="brand, home-brand" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label text="THE ART OF SCENT" styleClass="eyebrow, home-kicker" />
+            </HBox>
+            <Separator styleClass="section-separator" />
+        </VBox>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true" hbarPolicy="NEVER"
+                    styleClass="page-scroll" accessibleText="Aura Perfumes Home">
+            <content>
+                    <!-- Columns stack naturally when the content width becomes too small. -->
+                    <FlowPane alignment="CENTER" columnHalignment="LEFT" rowValignment="CENTER"
+                              prefWrapLength="1000" maxWidth="Infinity" minHeight="-Infinity"
+                              hgap="32" vgap="40" styleClass="home-hero">
+                        <VBox prefWidth="360" minWidth="360" maxWidth="360" alignment="CENTER_LEFT" spacing="24">
+                            <Label text="A MOMENT OF DISCOVERY" styleClass="eyebrow, home-kicker" />
+                            <Label text="An aura,&#10;uniquely yours." styleClass="display-heading, home-title"
+                                   wrapText="true" minHeight="-Infinity" maxWidth="Infinity" />
+                            <Label text="Welcome to a world of considered details,&#10;beautiful fragrances, and everyday rituals."
+                                   styleClass="page-subtitle, home-description" wrapText="true"
+                                   minHeight="-Infinity" maxWidth="Infinity" />
+                            <HBox alignment="CENTER_LEFT" spacing="16" styleClass="welcome-ornament">
+                                <Region minWidth="40" prefWidth="40" maxWidth="40" minHeight="1" maxHeight="1"
+                                        styleClass="gold-rule" mouseTransparent="true" />
+                                <Label text="A quieter kind of luxury." styleClass="home-signature" />
+                            </HBox>
+                        </VBox>
+                        <StackPane minWidth="330" prefWidth="330" maxWidth="330" minHeight="400"
+                                   prefHeight="400" maxHeight="400" styleClass="home-art"
+                                   accessibleText="Minimalist Aura perfume bottle with concentric gold outlines">
+                            <Circle radius="140" styleClass="fragrance-halo, home-halo" mouseTransparent="true" />
+                            <Circle radius="112" styleClass="fragrance-halo, home-halo" mouseTransparent="true" />
+                            <VBox alignment="CENTER" spacing="0" mouseTransparent="true" translateY="-8">
+                                <Rectangle width="62" height="38" arcWidth="4" arcHeight="4" styleClass="bottle-cap" />
+                                <Rectangle width="34" height="14" styleClass="bottle-neck" />
+                                <StackPane>
+                                    <Rectangle width="154" height="194" arcWidth="16" arcHeight="16" styleClass="bottle" />
+                                    <VBox alignment="CENTER" maxWidth="126" maxHeight="104" styleClass="bottle-label">
+                                        <Label text="AURA" styleClass="bottle-brand" />
+                                        <Label text="EAU DE PARFUM" styleClass="bottle-caption" />
+                                    </VBox>
+                                </StackPane>
+                            </VBox>
+                            <Label text="ESSENCE / ELEGANCE / EMOTION" styleClass="home-art-caption"
+                                   StackPane.alignment="BOTTOM_CENTER">
+                                <StackPane.margin><Insets bottom="22" /></StackPane.margin>
+                            </Label>
+                        </StackPane>
+                    </FlowPane>
+            </content>
+        </ScrollPane>
+    </center>
+    <bottom>
+        <VBox spacing="16">
+            <Separator styleClass="section-separator" />
+            <HBox alignment="CENTER_LEFT" spacing="16">
+                <Label text="CRAFTED WITH CARE" styleClass="helper-text, home-kicker" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label text="Aura Perfumes · Welcome" styleClass="helper-text" />
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>

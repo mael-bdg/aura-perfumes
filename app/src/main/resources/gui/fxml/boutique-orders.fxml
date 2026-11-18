@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<ScrollPane xmlns:fx="http://javafx.com/fxml" fx:controller="gui.boutique.BoutiqueOrdersFXController" fitToWidth="true" hbarPolicy="NEVER" styleClass="page-scroll">
+  <content>
+    <VBox spacing="24" styleClass="page">
+      <Label text="BOUTIQUE ORDER MANAGEMENT" styleClass="eyebrow"/>
+      <Label text="Boutique Orders" styleClass="page-heading"/>
+      <Label text="Find an existing order and manage its fulfillment." styleClass="page-subtitle" wrapText="true"/>
+      <Label text="Session orders: enter ORD-0002, ORD-0003, ORD-0004 or a reference returned by Place Order. Employees: EMP-3333, EMP-8888, EMP-9999. Orders are retained until this application closes." styleClass="helper-text" wrapText="true"/>
+      <Separator styleClass="section-separator"/>
+      <VBox spacing="12" styleClass="dashboard-card">
+        <Label text="01  FIND AN ORDER" styleClass="section-heading"/>
+        <Label text="Order number or UUID" styleClass="field-label"/>
+        <HBox spacing="12" alignment="CENTER_LEFT">
+          <TextField fx:id="orderIdField" promptText="Enter ORD-UC4-001 or UUID" styleClass="form-field" HBox.hgrow="ALWAYS"/>
+          <Button fx:id="lookupButton" text="Find order" styleClass="button-secondary" onAction="#lookupOrder"/>
+        </HBox>
+        <Label text="Search by order number or UUID. Session orders are shared with Place Order." wrapText="true"/>
+      </VBox>
+      <VBox fx:id="orderPanel" spacing="12" styleClass="dashboard-card">
+        <Label text="02  ORDER DETAILS" styleClass="section-heading"/>
+        <Label fx:id="orderDetails" wrapText="true"/>
+      </VBox>
+      <VBox spacing="12" styleClass="dashboard-card">
+        <Label text="03  PROCESS ORDER" styleClass="section-heading"/>
+        <Label text="Employee code or UUID" styleClass="field-label"/>
+        <TextField fx:id="employeeIdField" promptText="Employee code or UUID" styleClass="form-field"/>
+        <Label text="Requested action" styleClass="field-label"/>
+        <ComboBox fx:id="targetStatus" promptText="Choose an action" maxWidth="Infinity" styleClass="form-combo"/>
+        <Label text="Pickup PIN (for ready-for-pickup)" styleClass="field-label"/>
+        <TextField fx:id="pickupPin" promptText="Pickup PIN" styleClass="form-field"/>
+        <Label text="Cancellation reason (for cancellation)" styleClass="field-label"/>
+        <TextArea fx:id="cancellationReason" prefRowCount="2" promptText="Reason for cancellation" styleClass="form-field" wrapText="true"/>
+        <Button fx:id="processButton" text="Apply action" onAction="#processOrder" styleClass="button-primary"/>
+        <Label fx:id="statusMessage" text="Search for an order to begin." wrapText="true"/>
+      </VBox>
+    </VBox>
+  </content>
+</ScrollPane>

@@ -1,0 +1,33 @@
+/* Home-only layout, reusing the shared palette, typography and bottle illustration. */
+.home-page {
+    -fx-background-color: -aura-ivory;
+    -fx-padding: 28 32 24 32;
+}
+.home-brand {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+.home-kicker { -fx-font-size: 12px; }
+.home-hero { -fx-padding: 32 0; }
+.home-title {
+    -fx-font-size: 50px;
+    -fx-line-spacing: 2px;
+}
+.home-description {
+    -fx-font-size: 14px;
+    -fx-line-spacing: 6px;
+}
+.home-signature {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 15px;
+    -fx-font-style: italic;
+}
+.home-art {
+    -fx-background-color: -aura-champagne;
+    -fx-background-radius: 32;
+    -fx-border-color: -aura-champagne;
+    -fx-border-radius: 32;
+    -fx-border-width: 1;
+}
+.home-halo { -fx-opacity: 0.5; }
+.home-art-caption { -fx-font-size: 11px; }

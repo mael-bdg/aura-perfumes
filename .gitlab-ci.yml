@@ -1,0 +1,50 @@
+default:
+  image: maven:3.10.0-eclipse-temurin-25-noble
+  cache:
+    key: "maven-$CI_COMMIT_REF_SLUG"
+    paths:
+      - .m2/repository/
+
+stages:
+  - build
+  - test
+  - package
+
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
+
+build:
+  stage: build
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "merge_request_event"'
+  script:
+    - mvn -B -ntp -DskipTests compile
+
+test:
+  stage: test
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "merge_request_event"'
+  script:
+    - mvn -B -ntp clean test
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - core/target/surefire-reports/TEST-*.xml
+        - app/target/surefire-reports/TEST-*.xml
+        - services/target/surefire-reports/TEST-*.xml
+      
+
+package:
+  stage: package
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push" || $CI_PIPELINE_SOURCE == "merge_request_event"'
+  script:
+    - mvn -B -ntp -DskipTests package
+  artifacts:
+    paths:
+      - core/target/*.jar
+      - services/target/*.jar
+      - app/target/*.jar
+    expire_in: 1 week
+

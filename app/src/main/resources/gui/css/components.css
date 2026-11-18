@@ -1,0 +1,261 @@
+/* Apply to standard JavaFX controls and layout containers.
+ * Buttons: button-primary, button-secondary, button-navigation (Button/ToggleButton).
+ * Forms: form-field (TextField/PasswordField/TextArea), form-combo, form-spinner.
+ * Add validation-error to an invalid control and show a descriptive Label using
+ * validation-message, e.g. "Error - enter a quantity". Set accessibleHelp as well.
+ * Status Labels use message-error/message-success and explicit Error/Success text.
+ * Dashed error borders distinguish validation without relying on color alone.
+ */
+.button-primary, .button-secondary, .button-navigation {
+    -fx-min-height: 44;
+    -fx-padding: 11 22;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 4;
+    -fx-background-insets: 0;
+    -fx-border-radius: 4;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+    -fx-text-fill: -aura-espresso;
+}
+.button-primary {
+    -fx-background-color: -aura-espresso;
+    -fx-text-fill: -aura-ivory;
+    -fx-border-color: -aura-espresso;
+}
+.button-primary:hover { -fx-background-color: derive(-aura-espresso, 15%); }
+.button-primary:pressed { -fx-background-color: derive(-aura-espresso, -15%); }
+.button-secondary {
+    -fx-background-color: -aura-ivory;
+    -fx-border-color: -aura-taupe;
+}
+.button-secondary:hover { -fx-background-color: -aura-champagne; }
+.button-secondary:pressed { -fx-background-color: -aura-gold; }
+.button-navigation {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-alignment: CENTER_LEFT;
+}
+.button-navigation:hover { -fx-background-color: -aura-champagne; }
+.button-navigation:pressed { -fx-background-color: -aura-gold; }
+.button-navigation:selected, .button-navigation.is-active {
+    -fx-background-color: -aura-champagne;
+    -fx-border-color: -aura-espresso;
+    -fx-border-width: 1 1 1 4;
+    -fx-padding: 11 22 11 19;
+}
+/* Offset focus outlines remain visible on both dark and light surfaces. */
+.button-primary:focused, .button-secondary:focused, .button-navigation:focused {
+    -fx-border-color: -aura-espresso;
+    -fx-border-width: 2;
+    -fx-border-insets: -4;
+    -fx-border-radius: 7;
+}
+.button-primary:disabled, .button-secondary:disabled, .button-navigation:disabled {
+    -fx-background-color: -aura-champagne;
+    -fx-text-fill: -aura-espresso;
+    -fx-border-color: -aura-taupe;
+    -fx-border-width: 1;
+    -fx-border-insets: 0;
+    -fx-border-radius: 4;
+    -fx-cursor: default;
+    -fx-opacity: 0.75;
+}
+/* Keep the active-page marker while the keyboard focus outline is visible. */
+.button-navigation:selected:focused, .button-navigation.is-active:focused {
+    -fx-border-width: 2 2 2 4;
+}
+
+.product-card, .dashboard-card {
+    -fx-background-color: -aura-ivory;
+    -fx-border-color: -aura-champagne;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 24;
+    -fx-spacing: 16;
+}
+.product-card:hover, .dashboard-card:hover { -fx-border-color: -aura-taupe; }
+.product-card:focused, .dashboard-card:focused {
+    -fx-border-color: -aura-espresso;
+    -fx-border-width: 2;
+    -fx-padding: 23;
+}
+.product-card:disabled, .dashboard-card:disabled { -fx-opacity: 0.75; }
+.card-heading {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 21px;
+}
+.card-value {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 32px;
+}
+
+.form-field, .form-combo, .form-spinner {
+    -fx-min-height: 44;
+    -fx-background-color: -aura-ivory;
+    -fx-background-insets: 0;
+    -fx-background-radius: 4;
+    -fx-border-color: -aura-taupe;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-text-fill: -aura-espresso;
+    -fx-opacity: 1;
+}
+.form-field {
+    -fx-padding: 11 14;
+    -fx-prompt-text-fill: -aura-espresso;
+    -fx-highlight-fill: -aura-champagne;
+    -fx-highlight-text-fill: -aura-espresso;
+}
+.form-field:hover, .form-combo:hover, .form-spinner:hover { -fx-border-color: -aura-espresso; }
+.form-field:focused, .form-combo:focused, .form-combo:showing,
+.form-spinner:focused {
+    -fx-border-color: -aura-espresso;
+    -fx-border-width: 2;
+}
+.form-field:focused { -fx-padding: 10 13; }
+.form-field .content {
+    -fx-background-color: -aura-ivory;
+    -fx-background-insets: 0;
+}
+.form-field .scroll-pane, .form-field .scroll-pane > .viewport { -fx-background-color: transparent; }
+.form-combo { -fx-padding: 0; }
+.form-combo > .list-cell {
+    -fx-padding: 10 13;
+    -fx-text-fill: -aura-espresso;
+    -fx-background-color: transparent;
+}
+.form-combo > .arrow-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0 14;
+}
+.form-combo > .arrow-button > .arrow { -fx-background-color: -aura-espresso; }
+.form-combo:pressed { -fx-background-color: -aura-champagne; }
+.combo-box-popup > .list-view {
+    -fx-background-color: -aura-ivory;
+    -fx-border-color: -aura-taupe;
+    -fx-padding: 4;
+}
+.combo-box-popup .list-cell {
+    -fx-background-color: -aura-ivory;
+    -fx-text-fill: -aura-espresso;
+    -fx-padding: 10 14;
+}
+.combo-box-popup .list-cell:filled:hover, .combo-box-popup .list-cell:filled:selected { -fx-background-color: -aura-champagne; }
+.combo-box-popup .list-cell:filled:focused { -fx-border-color: -aura-espresso; }
+.form-spinner { -fx-padding: 0; }
+.form-spinner > .text-field {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 10 13;
+    -fx-text-fill: -aura-espresso;
+    -fx-highlight-fill: -aura-champagne;
+    -fx-highlight-text-fill: -aura-espresso;
+}
+.form-spinner > .increment-arrow-button, .form-spinner > .decrement-arrow-button {
+    -fx-background-color: -aura-champagne;
+    -fx-background-insets: 0;
+    -fx-padding: 5 11;
+}
+.form-spinner > .increment-arrow-button:hover, .form-spinner > .decrement-arrow-button:hover { -fx-background-color: -aura-gold; }
+.form-spinner > .increment-arrow-button:pressed, .form-spinner > .decrement-arrow-button:pressed { -fx-background-color: -aura-taupe; }
+.form-spinner .increment-arrow, .form-spinner .decrement-arrow { -fx-background-color: -aura-espresso; }
+.form-field:disabled, .form-combo:disabled, .form-spinner:disabled {
+    -fx-background-color: -aura-champagne;
+    -fx-border-color: -aura-taupe;
+    -fx-opacity: 0.75;
+}
+.form-spinner:disabled > .text-field { -fx-opacity: 1; }
+
+/* Error borders retain their dashed shape while focused. Pair with inline text. */
+.form-field.validation-error, .form-combo.validation-error, .form-spinner.validation-error {
+    -fx-border-color: -aura-espresso;
+    -fx-border-width: 2;
+    -fx-border-style: dashed;
+}
+.form-field.validation-error { -fx-padding: 10 13; }
+.form-field.validation-error:focused, .form-combo.validation-error:focused,
+.form-spinner.validation-error:focused { -fx-border-insets: -3; }
+.validation-message {
+    -fx-text-fill: -aura-espresso;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+.message-error, .message-success {
+    -fx-text-fill: -aura-espresso;
+    -fx-background-color: -aura-champagne;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-padding: 14 18;
+    -fx-font-size: 14px;
+}
+.message-error {
+    -fx-border-color: -aura-espresso;
+    -fx-border-style: dashed;
+    -fx-border-width: 2;
+    -fx-font-weight: bold;
+}
+.message-success {
+    -fx-border-color: -aura-gold;
+    -fx-border-width: 1 1 1 4;
+}
+.empty-state {
+    -fx-alignment: CENTER;
+    -fx-padding: 32;
+    -fx-spacing: 16;
+    -fx-background-color: -aura-ivory;
+    -fx-border-color: -aura-taupe;
+    -fx-border-style: dashed;
+    -fx-border-radius: 6;
+}
+.empty-state-title {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 23px;
+}
+
+.data-table {
+    -fx-background-color: -aura-ivory;
+    -fx-background-insets: 0;
+    -fx-border-color: -aura-taupe;
+    -fx-border-width: 1;
+    -fx-padding: 1;
+    -fx-table-cell-border-color: -aura-champagne;
+}
+.data-table:focused {
+    -fx-border-color: -aura-espresso;
+    -fx-border-width: 2;
+    -fx-padding: 0;
+}
+.data-table:disabled { -fx-opacity: 0.75; }
+.data-table .column-header-background, .data-table .column-header, .data-table .filler { -fx-background-color: -aura-champagne; }
+.data-table .column-header {
+    -fx-padding: 12 8;
+    -fx-border-color: transparent transparent -aura-taupe transparent;
+}
+.data-table .column-header .label {
+    -fx-text-fill: -aura-espresso;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER_LEFT;
+}
+.data-table .column-header .arrow { -fx-background-color: -aura-espresso; }
+.data-table .table-row-cell {
+    -fx-background-color: -aura-ivory;
+    -fx-cell-size: 48;
+}
+.data-table .table-row-cell:filled:hover { -fx-background-color: -aura-champagne; }
+.data-table .table-row-cell:filled:selected { -fx-background-color: -aura-espresso; }
+.data-table .table-cell {
+    -fx-text-fill: -aura-espresso;
+    -fx-padding: 12 10;
+    -fx-alignment: CENTER_LEFT;
+}
+.data-table .table-row-cell:filled:selected .table-cell { -fx-text-fill: -aura-ivory; }
+.data-table .table-row-cell:filled:focused {
+    -fx-border-color: -aura-gold;
+    -fx-border-width: 0 0 0 3;
+}
+.data-table .placeholder .label {
+    -fx-text-fill: -aura-espresso;
+    -fx-font-size: 14px;
+}

@@ -1,0 +1,14 @@
+/* Page-local layout, layered over the shared theme and component styles. */
+.stock-dashboard {
+    -fx-padding: 24;
+    -fx-spacing: 24;
+}
+.stock-summary-title { -fx-min-height: 52; }
+.stock-form-fields { -fx-spacing: 8; }
+.stock-empty-copy { -fx-text-alignment: center; }
+.stock-inventory-table .placeholder .empty-state-title { -fx-font-size: 21px; }
+.stock-row-action {
+    -fx-min-height: 32;
+    -fx-padding: 6 9;
+    -fx-font-size: 12px;
+}

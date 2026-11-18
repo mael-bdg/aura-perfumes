@@ -1,0 +1,55 @@
+/* Welcome composition. Common typography and controls live in shared CSS. */
+.welcome-masthead {
+    -fx-padding: 28 48;
+    -fx-spacing: 16;
+    -fx-border-color: transparent transparent -aura-champagne transparent;
+    -fx-border-width: 1;
+}
+.brand-mark { -fx-fill: -aura-gold; }
+.welcome-content {
+    -fx-padding: 48;
+    -fx-spacing: 48;
+}
+.welcome-copy { -fx-spacing: 28; }
+.welcome-ornament { -fx-padding: 8 0 0 0; }
+.fragrance-art {
+    -fx-background-color: -aura-champagne;
+    -fx-background-radius: 180 180 8 8;
+    -fx-border-color: -aura-taupe;
+    -fx-border-radius: 180 180 8 8;
+    -fx-border-width: 1;
+}
+.fragrance-halo {
+    -fx-fill: transparent;
+    -fx-stroke: -aura-gold;
+    -fx-stroke-width: 1;
+    -fx-opacity: 0.35;
+}
+.fragrance-halo-inner {
+    -fx-fill: transparent;
+    -fx-stroke: -aura-gold;
+    -fx-stroke-width: 1;
+    -fx-opacity: 0.16;
+}
+.bottle-cap { -fx-fill: -aura-espresso; }
+.bottle-neck { -fx-fill: -aura-gold; }
+.bottle {
+    -fx-fill: linear-gradient(to right, -aura-champagne, -aura-ivory, -aura-champagne);
+    -fx-stroke: -aura-gold;
+    -fx-stroke-width: 1.3;
+    -fx-effect: dropshadow(gaussian, rgba(52, 43, 38, 0.15), 20, 0.1, 8, 14);
+}
+
+.bottle-label {
+    -fx-background-color: -aura-ivory;
+    -fx-border-color: -aura-champagne;
+    -fx-border-width: 1;
+    -fx-spacing: 12;
+}
+.bottle-brand {
+    -fx-font-family: "Georgia";
+    -fx-font-size: 28px;
+}
+.bottle-caption { -fx-font-size: 12px; }
+.art-caption { -fx-font-size: 9px; -fx-text-fill: -aura-espresso; }
+
